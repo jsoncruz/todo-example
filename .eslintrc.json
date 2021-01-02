@@ -1,0 +1,57 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react-hooks/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "eslint-plugin-import-helpers"
+    ],
+    "rules": {
+      "no-shadow": "off",
+      "no-unused-vars": "warn",
+      "no-cond-assign": "off",
+      "no-use-before-define": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+      "max-len": ["error", { "code": 130 }],
+      "import/no-unresolved": "off",
+      "import/extensions": "off",
+      "no-param-reassign": "off",
+      "no-restricted-syntax": "off",
+      "no-async-promise-executor": "off",
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-props-no-spreading": "off",
+      "import-helpers/order-imports": [
+        "warn",
+        {
+          "newlinesBetween": "always",
+          "groups": [
+            "/^next/",
+            "/^react$/",
+            "module",
+            "/^~\/|@(api|assets|config|shared|graphql|components)\//",
+            ["parent", "sibling", "index"]
+          ],
+          "alphabetize": { "order": "asc", "ignoreCase": false }
+        }
+      ]
+    }
+}
