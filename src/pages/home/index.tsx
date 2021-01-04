@@ -3,32 +3,22 @@ import React, { useEffect } from 'react';
 import {
   Flex,
   Grid,
-  List,
   Icon,
-  Text,
   Input,
-  Stack,
   Button,
   Heading,
   useToast,
-  ListItem,
-  IconButton,
   InputGroup,
   FormControl,
   InputRightElement,
 } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { DateTime } from 'luxon';
 import { useForm } from 'react-hook-form';
-import {
-  MdAdd,
-  MdDone,
-  MdEdit,
-  MdDelete,
-} from 'react-icons/md';
+import { MdAdd } from 'react-icons/md';
 import * as Yup from 'yup';
 
 import useTodo from '../../hooks/useTodo';
+import Tasks from './tasks';
 
 interface FormProps {
   task: string;
@@ -42,7 +32,7 @@ const schema: any = Yup.object().shape({
 });
 
 export default function Home() {
-  const { add, list } = useTodo();
+  const { add } = useTodo();
 
   const {
     register, handleSubmit, errors, setValue,
@@ -114,19 +104,7 @@ export default function Home() {
         <div />
       </Flex>
       <Flex gridArea="body" justifyContent="center">
-        <List>
-          {list?.map(({ id, task, date }) => (
-            <ListItem key={id}>
-              <Stack alignItems="center" isInline>
-                <Text>{task}</Text>
-                <Text>{DateTime.fromISO(date).toLocaleString()}</Text>
-                <IconButton boxSize={6} as={MdDone} aria-label="Task is done" />
-                <IconButton boxSize={6} as={MdEdit} aria-label="Task is editing" />
-                <IconButton boxSize={6} as={MdDelete} aria-label="Task got deleted" />
-              </Stack>
-            </ListItem>
-          ))}
-        </List>
+        <Tasks />
       </Flex>
     </Grid>
   );
