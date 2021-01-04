@@ -1,1 +1,1 @@
-## Just for purposes of example
+## Example purposes
